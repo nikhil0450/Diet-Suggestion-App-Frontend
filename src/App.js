@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate,  } from 'react-router-dom';
 
-function App() {
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Register from './components/Register';
+import Login from './components/Login';
+import BMI from './components/BMI';
+import AboutUs from './components/AboutUs';
+import Logout from './components/Logout';
+
+const App = () => {
+  const [authenticated, setAuthenticated] = useState(localStorage.getItem('token') !== null);
+
+  const handleLogin = () => {
+    setAuthenticated(true);
+    window.location.reload();
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar authenticated={authenticated} />
+      <Routes>
+        <Route path="/home" element={<Home /> } />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login handleLogin={handleLogin} />} />
+        <Route path="/bmi" element={<BMI />} />
+        <Route path="/about" element={<AboutUs />} />
+        {authenticated ? (
+          <>
+            <Route path="/logout" element={<Logout handleLogout={() => { setAuthenticated(false); }} />} />
+          </>
+        ) : (
+          <Route path="/logout" element={<Navigate to="/home" />} />
+        )}
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
