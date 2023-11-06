@@ -43,7 +43,7 @@ const BMI = () => {
       return;
     }
 
-    fetch('http://localhost:5000/api/bmi/calculate', {
+    fetch('https://dietsuggestion.onrender.com/api/bmi/calculate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

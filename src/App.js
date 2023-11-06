@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate,  } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -14,14 +14,20 @@ const App = () => {
 
   const handleLogin = () => {
     setAuthenticated(true);
-    window.location.reload();
   };
+
+  useEffect(() => {
+    // Check if the user is not authenticated and on the root URL
+    if (!authenticated && window.location.pathname === '/') {
+      window.location.pathname = '/home'; // Redirect to /home
+    }
+  }, [authenticated]);
 
   return (
     <Router>
       <Navbar authenticated={authenticated} />
       <Routes>
-        <Route path="/home" element={<Home /> } />
+        <Route path="/home" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login handleLogin={handleLogin} />} />
         <Route path="/bmi" element={<BMI />} />

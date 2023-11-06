@@ -28,7 +28,7 @@ const Register = () => {
     };
 
     // Make the registration request using fetch
-    fetch('http://localhost:5000/api/auth/register', requestBody)
+    fetch('https://dietsuggestion.onrender.com/api/auth/register', requestBody)
       .then((response) => {
         if (response.ok) {
           alert("Registration Successful!");
