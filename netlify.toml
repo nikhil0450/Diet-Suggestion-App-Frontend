@@ -1,0 +1,3 @@
+[build]
+base = "path-to-your-react-code"
+publish = "path-to-your-built-app-folder"
