@@ -1,27 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './bmi.css'
 
 const BMI = () => {
   const isAuthenticated = localStorage.getItem('token') !== null;
-
-  const buttonStyles = {
-    width: "100%",
-    textAlign : "center",
-    textDecoration: 'none',
-    color: '#007bff',
-    fontWeight: 'bold',
-    transition: 'color 0.2s',
-  };
-
-  const linkStyles = {
-    textDecoration: 'none',
-    color: '#007bff',
-    fontWeight: 'bold',
-  };
-
-  linkStyles[':hover'] = {
-    color: '#0056b3',
-  };
 
   const [formData, setFormData] = useState({
     height: '',
@@ -68,62 +50,61 @@ const BMI = () => {
   };
 
   return (
-    <div>
-      <h2 style={{ textAlign: 'center', margin: "15px 0px"}}>BMI Calculator</h2>
-      {isAuthenticated ? (
-        <div className="container mt-5">
-        <div className="row justify-content-center">
-          <div className="col-md-6 p-10">
-            <form>
-              <div className="form-group">
-                <label>Height (in cm)</label>
-                <input
-                  type="number"
-                  name="height"
-                  value={formData.height}
-                  onChange={handleChange}
-                  className="form-control"
-                  placeholder="Enter your height"
-                />
-              </div>
-              <div className="form-group">
-                <label>Weight (in kg)</label>
-                <input
-                  type="number"
-                  name="weight"
-                  value={formData.weight}
-                  onChange={handleChange}
-                  className="form-control"
-                  placeholder="Enter your weight"
-                />
-              </div>
-              <button type="button" onClick={calculateBMI} className="btn btn-primary btn-block my-2">
-                Calculate BMI
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-      
-      ) : (
-        <>
-        <h4 style={{ textAlign: 'center' }}>You need to log in to access this page.</h4>
-        <button type="button" className="btn btn-link" style={buttonStyles}>
-              <Link to="/login" style={linkStyles}>
+    <div className="container mt-5">
+      <div className="bmi-container">
+        <h2 className="bmi-title">BMI Calculator</h2>
+        {isAuthenticated ? (
+          <form>
+            <div className="form-group" id="height-group">
+              <label>Height (in cm)</label>
+              <input
+                type="number"
+                name="height"
+                value={formData.height}
+                onChange={handleChange}
+                className="form-control"
+                placeholder="Enter your height"
+              />
+            </div>
+            <div className="form-group" id="weight-group">
+              <label>Weight (in kg)</label>
+              <input
+                type="number"
+                name="weight"
+                value={formData.weight}
+                onChange={handleChange}
+                className="form-control"
+                placeholder="Enter your weight"
+              />
+            </div>
+            <button
+              type="button"
+              onClick={calculateBMI}
+              className="btn btn-primary"
+            >
+              Calculate BMI
+            </button>
+          </form>
+        ) : (
+          <>
+            <h4>You need to log in to access this page.</h4>
+            <button type="button" className="btn">
+              <Link to="/login" className="link">
                 Get Started with us today itself...
               </Link>
             </button>
-        </>
-      )} 
+          </>
+        )}
 
-      <div>
         {error && <div className="alert alert-danger">{error}</div>}
-        {bmiResult && <p style={{ textAlign: "center" }}>
-  Your BMI: <span style={{ backgroundColor: "#2c307a", color: "white", padding: "4px 8px", borderRadius: "4px" }}>{bmiResult.toFixed(2)}</span>
-</p>
-
-}
-        {dietPlan && (
+        {bmiResult && (
+          <div className="result-container">
+            <p className="result-text">
+              Your BMI: <span className="result-bmi">{bmiResult.toFixed(2)}</span>
+            </p>
+          </div>
+        )}
+         {dietPlan && (
           <div className="container mt-4">
           <div className="card">
             <div className="card-body">
@@ -140,7 +121,6 @@ const BMI = () => {
             </div>
           </div>
         </div>
-        
         )}
       </div>
     </div>

@@ -1,0 +1,103 @@
+/* Custom styles for Login.js */
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .login-title {
+    text-align: center;
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  /* Custom styles for Register.js */
+  .register-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .register-title {
+    text-align: center;
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  /* Custom styles for BMI.js */
+  .bmi-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .bmi-title {
+    text-align: center;
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+
+  .about-title {
+    text-align: center;
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  /* Custom styles for Head.js */
+  .head-container {
+    padding: 20px;
+    text-align: center;
+    background-color: #f8f9fa;
+  }
+  
+  .head-title {
+    font-size: 32px;
+    color: #343a40;
+  }
+  
+  .head-text {
+    font-size: 18px;
+    color: #6c757d;
+    margin-top: 20px;
+  }
+  
+  /* Custom styles for AccordionItem.js */
+  .accordion-button {
+    background-color: #f8f9fa;
+    color: #343a40;
+    font-weight: bold;
+    border: none;
+    text-align: left;
+  }
+  
+  /* Additional styles for buttons */
+  .custom-btn {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .custom-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .site-title {
+    color: #007bff;
+    font-weight: bold;
+  }
+  

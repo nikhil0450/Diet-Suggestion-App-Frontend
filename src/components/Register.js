@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './custom.css'; 
 
 const Register = () => {
   const Navigate = useNavigate();
@@ -8,7 +9,6 @@ const Register = () => {
     email: '',
     password: '',
   });
-
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
@@ -27,7 +27,6 @@ const Register = () => {
       body: JSON.stringify(formData),
     };
 
-    // Make the registration request using fetch
     fetch('https://dietsuggestion.onrender.com/api/auth/register', requestBody)
       .then((response) => {
         if (response.ok) {
@@ -38,7 +37,7 @@ const Register = () => {
         }
       })
       .then((data) => {
-        Navigate('/Login');
+        Navigate('/login');
         const token = data.token;
 
         localStorage.setItem('token', token);
@@ -54,53 +53,51 @@ const Register = () => {
 
   return (
     <div className="container mt-5">
-    <div className="row justify-content-center">
-      <div className="col-md-6">
-        <h2 className="text-center">Register</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Username</label>
-            <input
-              type="text"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              className="form-control"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="form-control"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              className="form-control"
-              required
-            />
-          </div>
-          <button type="submit" className="btn btn-primary btn-block my-3">
-            Register
-          </button>
-        </form>
-        {error && <p className="text-danger mt-3">{error}</p>}
+      <div className="row justify-content-center">
+        <div className="col-md-6 register-container"> 
+          <h2 className="register-title">Register</h2> 
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label>Username</label>
+              <input
+                type="text"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                className="form-control"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="form-control"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                className="form-control"
+                required
+              />
+            </div>
+            <button type="submit" className="btn btn-primary btn-block my-3 custom-btn">
+              Register
+            </button>
+          </form>
+          {error && <p className="text-danger mt-3">{error}</p>}
+        </div>
       </div>
     </div>
-  </div>
-  
-
   );
 };
 

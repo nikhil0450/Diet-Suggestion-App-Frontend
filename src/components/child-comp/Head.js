@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 
-const Head = () => {   
+const Head = () => {
   const isAuthenticated = localStorage.getItem('token') !== null;
 
   const buttonStyles = {
@@ -27,17 +27,17 @@ const Head = () => {
       <Row className="flex-md-row">
         <Col xs={12} md={6} className="text-center">
           <div className='m-5'>
-            <h3>Your Personal Diet Suggestor</h3>
+            <h3 className='site-title'>Your Personal Diet Suggestor</h3>
             <p>Get to know your BMI (Body-Mass-Index) & we will suggest you the diet accordingly.</p>
-            {isAuthenticated ? ( 
-              <p>Welcome</p>
-                ) : (
-                <button type="button" className="btn btn-link" style={buttonStyles}>
-              <Link to="/login" style={linkStyles}>
-                Get Started with us today itself...
-              </Link>
-            </button>
-                 ) }
+            {isAuthenticated ? (
+              <h4>Welcome</h4>
+            ) : (
+              <button type="button" className="btn " style={buttonStyles}>
+                <Link to="/login" style={{ color: '#007bff', fontWeight: 'bold' }}>
+                  Get Started with us today itself...
+                </Link>
+              </button>
+            )}
           </div>
         </Col>
         <Col xs={12} md={6} className="text-center">
@@ -50,7 +50,7 @@ const Head = () => {
             <img
               src="https://images.unsplash.com/photo-1522844990619-4951c40f7eda?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Healthy Food"
-              style={{ maxWidth: '60%', height: 'auto', marginLeft: "20px" }}
+              style={{ maxWidth: '70%', height: 'auto', marginLeft: "30px" }}
             />
           </div>
         </Col>

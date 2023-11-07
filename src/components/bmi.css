@@ -1,0 +1,122 @@
+/* Custom styles for BMI.js */
+.bmi-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f8f9fa; /* Light background color */
+}
+
+.bmi-title {
+  text-align: center;
+  font-size: 24px;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+/* Improved form styles */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Add margin to height and weight input fields */
+#height-group {
+  margin-bottom: 20px;
+}
+
+#weight-group {
+  margin-bottom: 20px;
+}
+
+/* Primary button styles */
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Alert message styles */
+.alert {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f8d7da; /* Red alert background color */
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  color: #721c24;
+  font-weight: bold;
+}
+
+/* Result styles */
+.result-container {
+  margin-top: 20px;
+}
+
+.result-text {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.result-bmi {
+  background-color: #2c307a; /* Blue background color */
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* Diet plan card styles */
+.card {
+  margin-top: 20px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.list-group-item {
+  font-size: 14px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+/* Additional styles for links */
+.link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

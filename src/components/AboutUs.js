@@ -31,7 +31,7 @@ const AboutUs = () => {
         <div className="container mt-5">
         <div className="row">
           <div className="col-md-6">
-            <h2>About Our Diet Suggestion App</h2>
+            <h2 className='about-title'>About Our Diet Suggestion App</h2>
             <p>
               Welcome to our Diet Suggestion App, where we aim to help you achieve your health and fitness goals through personalized diet plans and recommendations. We understand that maintaining a healthy diet can be challenging, and our mission is to make it easier for you.
             </p>
@@ -63,7 +63,7 @@ const AboutUs = () => {
         
        ) : (
         <>
-        <h2 style={{ textAlign: 'center', margin: "15px 0px"}}>About Us</h2>
+        <h2 style={{ textAlign: 'center', margin: "15px 0px"}} className='about-title'>About Us</h2>
         <h4 style={{ textAlign: 'center', margin: "15px 0px"}}>You need to log in to access this page.</h4>
         <button type="button" className="btn btn-link" style={buttonStyles}>
               <Link to="/login" style={linkStyles}>

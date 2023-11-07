@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './custom.css'; // Import custom CSS
 
 const Login = () => {
   const navigate = useNavigate();
@@ -47,15 +48,15 @@ const Login = () => {
       }
     } catch (error) {
       setError('Login failed. Please check your credentials.');
-      console.error('Login Error:', error); 
+      console.error('Login Error:', error);
     }
   };
 
   return (
     <div className="container mt-5">
       <div className="row justify-content-center">
-        <div className="col-md-6">
-          <h2 className="text-center">Login</h2>
+        <div className="col-md-6 login-container"> {/* Add custom class */}
+          <h2 className="login-title">Login</h2> {/* Add custom class */}
           <form>
             <div className="form-group">
               <label>Email</label>
@@ -80,7 +81,7 @@ const Login = () => {
             <button
               type="button"
               onClick={handleSubmit}
-              className="btn btn-primary btn-block my-3"
+              className="btn btn-primary btn-block my-3 custom-btn" 
             >
               Log In
             </button>
