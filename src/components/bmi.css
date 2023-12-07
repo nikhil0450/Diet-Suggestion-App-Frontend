@@ -1,6 +1,6 @@
 /* Custom styles for BMI.js */
 .bmi-container {
-  max-width: 400px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ddd;
@@ -10,22 +10,28 @@
 
 .bmi-title {
   text-align: center;
+  font-weight: bold;
   font-size: 24px;
   color: #007bff;
   margin-bottom: 20px;
 }
 
 /* Improved form styles */
-.form-group {
+.form-bmi-group {
   margin-bottom: 15px;
 }
 
-.form-group label {
+.form-bmi-group label {
+  margin-bottom: 5px;
   font-weight: bold;
+  margin: 5px auto;
+  width: 62%;
+  text-align: center;
 }
 
-.form-control {
-  width: 100%;
+.form-bmi-control {
+  margin: auto;
+  width: 50%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -40,13 +46,20 @@
   margin-bottom: 20px;
 }
 
+/* Button parent class styling */
+.button{
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
 /* Primary button styles */
 .btn-primary {
   background-color: #007bff;
   color: #fff;
   border: none;
   cursor: pointer;
-  width: 100%;
+  /* width: 100%; */
   padding: 10px;
   font-weight: bold;
   border-radius: 5px;
@@ -94,18 +107,18 @@
 }
 
 .card-title {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .card-text {
-  font-size: 16px;
+  font-size: 17px;
   margin-bottom: 10px;
 }
 
 .list-group-item {
-  font-size: 14px;
+  font-size: 17px;
   margin-bottom: 5px;
   padding: 5px;
 }

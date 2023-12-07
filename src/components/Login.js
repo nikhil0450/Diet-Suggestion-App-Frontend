@@ -9,6 +9,7 @@ const Login = () => {
     password: '',
   });
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false); // New state for loading indicator
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,6 +23,7 @@ const Login = () => {
 
   const handleSubmit = async () => {
     setError('');
+    setLoading(true); // Set loading to true when the request starts
 
     try {
       const response = await fetch('https://dietsuggestion.onrender.com/api/auth/login', {
@@ -49,14 +51,16 @@ const Login = () => {
     } catch (error) {
       setError('Login failed. Please check your credentials.');
       console.error('Login Error:', error);
+    } finally {
+      setLoading(false); // Set loading to false when the request completes
     }
   };
 
   return (
     <div className="container mt-5">
       <div className="row justify-content-center">
-        <div className="col-md-6 login-container"> {/* Add custom class */}
-          <h2 className="login-title">Login</h2> {/* Add custom class */}
+        <div className="col-md-6 login-container bg-light">
+          <h2 className="login-title">Login</h2>
           <form>
             <div className="form-group">
               <label>Email</label>
@@ -78,13 +82,16 @@ const Login = () => {
                 className="form-control"
               />
             </div>
-            <button
-              type="button"
-              onClick={handleSubmit}
-              className="btn btn-primary btn-block my-3 custom-btn" 
-            >
-              Log In
-            </button>
+            <div className="button">
+              <button
+                type="button"
+                onClick={handleSubmit}
+                className="btn btn-primary btn-block my-3 custom-btn"
+                disabled={loading} // Disable the button when loading is true
+              >
+                {loading ? 'Logging In...' : 'Log In'}
+              </button>
+            </div>
           </form>
           <p className="mt-3 text-center">
             New user? <Link to="/register">Get started</Link>

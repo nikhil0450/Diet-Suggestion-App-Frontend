@@ -55,35 +55,37 @@ const BMI = () => {
         <h2 className="bmi-title">BMI Calculator</h2>
         {isAuthenticated ? (
           <form>
-            <div className="form-group" id="height-group">
+            <div className="form-group form-bmi-group" id="height-group">
               <label>Height (in cm)</label>
               <input
                 type="number"
                 name="height"
                 value={formData.height}
                 onChange={handleChange}
-                className="form-control"
+                className="form-control form-bmi-control"
                 placeholder="Enter your height"
               />
             </div>
-            <div className="form-group" id="weight-group">
+            <div className="form-group form-bmi-group" id="weight-group">
               <label>Weight (in kg)</label>
               <input
                 type="number"
                 name="weight"
                 value={formData.weight}
                 onChange={handleChange}
-                className="form-control"
+                className="form-control form-bmi-control"
                 placeholder="Enter your weight"
               />
             </div>
+            <div className='button'>
             <button
               type="button"
               onClick={calculateBMI}
               className="btn btn-primary"
-            >
+              >
               Calculate BMI
             </button>
+              </div>
           </form>
         ) : (
           <>
@@ -110,12 +112,10 @@ const BMI = () => {
             <div className="card-body">
               <h3 className="card-title">Diet Plan</h3>
               <p className="card-text">Category: {dietPlan.category}</p>
-              <p className="card-text">Min BMI: {dietPlan.minBMI}</p>
-              <p className="card-text">Max BMI: {dietPlan.maxBMI}</p>
               <p className="card-text">Daily Calorie Intake: {dietPlan.dailyCalorieIntake}</p>
               <ul className="list-group">
                 {dietPlan.suggestedFoods.map((food, index) => (
-                  <li key={index} className="list-group-item">{food}</li>
+                  <li key={index} className="list-group-item bg-light">{food}</li>
                 ))}
               </ul>
             </div>

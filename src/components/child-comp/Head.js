@@ -27,10 +27,10 @@ const Head = () => {
       <Row className="flex-md-row">
         <Col xs={12} md={6} className="text-center">
           <div className='m-5'>
-            <h3 className='site-title'>Your Personal Diet Suggestor</h3>
+            <h3 className='site-title my-5'>Your Personal Diet Suggestor</h3>
             <p>Get to know your BMI (Body-Mass-Index) & we will suggest you the diet accordingly.</p>
             {isAuthenticated ? (
-              <h4>Welcome</h4>
+              <h4 style={{fontFamily: "font-family: 'Montserrat', sans-serif"}}>Welcome</h4>
             ) : (
               <button type="button" className="btn " style={buttonStyles}>
                 <Link to="/login" style={{ color: '#007bff', fontWeight: 'bold' }}>

@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './custom.css'; 
+import './custom.css';
 
 const Register = () => {
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
     password: '',
   });
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,6 +19,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
 
     const requestBody = {
       method: 'POST',
@@ -37,7 +39,7 @@ const Register = () => {
         }
       })
       .then((data) => {
-        Navigate('/login');
+        navigate('/login');
         const token = data.token;
 
         localStorage.setItem('token', token);
@@ -48,14 +50,17 @@ const Register = () => {
       .catch((err) => {
         setError('Registration failed. Please check your information.');
         console.error('Registration Error:', err);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
   return (
     <div className="container mt-5">
       <div className="row justify-content-center">
-        <div className="col-md-6 register-container"> 
-          <h2 className="register-title">Register</h2> 
+        <div className="col-md-6 register-container bg-light">
+          <h2 className="register-title">Register</h2>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label>Username</label>
@@ -90,9 +95,15 @@ const Register = () => {
                 required
               />
             </div>
-            <button type="submit" className="btn btn-primary btn-block my-3 custom-btn">
-              Register
-            </button>
+            <div className="button">
+              <button
+                type="submit"
+                className="btn btn-primary btn-block my-3 custom-btn"
+                disabled={loading}
+              >
+                {loading ? 'Registering...' : 'Register'}
+              </button>
+            </div>
           </form>
           {error && <p className="text-danger mt-3">{error}</p>}
         </div>
